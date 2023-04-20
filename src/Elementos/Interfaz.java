@@ -20,12 +20,14 @@ public class Interfaz extends JFrame {
     private JComboBox j_Objetivo, j_Desigualdad1,j_Desigualdad2,j_Desigualdad3;
 
     public Interfaz(){
-        setLayout(null);
+              setLayout(null);
         //Creacion de los componentes
         Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\jossu\\OneDrive\\Escritorio\\MetodoGrafico\\MetodoGrafico\\src\\gato.jpg");
         l_Objetivo = new JLabel("Objetivo:");
         b_Limpiar = new JButton("Limpiar");
         b_Calcular = new JButton("Calcular");
+        l_Derecho = new JLabel();
+        l_Centro = new JLabel();
         b_AgregarR = new JButton("Agregar Restriccion");
         b_BorrarR = new JButton("Borrar Restriccion");
         l_Izquierda = new JLabel();
@@ -44,14 +46,14 @@ public class Interfaz extends JFrame {
         //Propiedades
         j_Objetivo.addItem("Maximizar");
         j_Objetivo.addItem("Minizar");
-        j_Desigualdad1.addItem(">=");
-        j_Desigualdad1.addItem("<=");
+        j_Desigualdad1.addItem("≥");
+        j_Desigualdad1.addItem("≤");
         j_Desigualdad1.addItem("=");
-        j_Desigualdad2.addItem(">=");
-        j_Desigualdad2.addItem("<=");
+        j_Desigualdad2.addItem("≥");
+        j_Desigualdad2.addItem("≤");
         j_Desigualdad2.addItem("=");
-        j_Desigualdad3.addItem(">=");
-        j_Desigualdad3.addItem("<=");
+        j_Desigualdad3.addItem("≥");
+        j_Desigualdad3.addItem("≤");
         j_Desigualdad3.addItem("=");
 
         l_Fox1.setBounds(80,70,50,60);
@@ -68,11 +70,15 @@ public class Interfaz extends JFrame {
         j_Desigualdad3.setBounds(220,300,40,25);
         l_Izquierda.setBorder(BorderFactory.createLineBorder(Color.black));
         l_Izquierda.setBounds(0,0,400,600);
+        l_Centro.setBorder(BorderFactory.createLineBorder(Color.black));
+        l_Centro.setBounds(410,0,400,600);
+        l_Derecho.setBorder(BorderFactory.createLineBorder(Color.black));
+        l_Derecho.setBounds(820,0,400,600);
         b_AgregarR.setBounds(20,450,150,40);
         b_BorrarR.setBounds(20,500,150,40);
         b_Calcular.setBounds(200,450,150,40);
         b_Limpiar.setBounds(200,500,150,40);
-
+        
         l_Izquierda.add(j_Desigualdad1);
         l_Izquierda.add(j_Desigualdad2);
         l_Izquierda.add(j_Desigualdad3);
@@ -90,6 +96,9 @@ public class Interfaz extends JFrame {
         l_Izquierda.add(b_Limpiar);
         l_Izquierda.add(j_Objetivo);
         
+        add(l_Derecho);
+        add(l_Centro);
+        setResizable(false);
         //Propiedades del Frame
         setIconImage(icon);
         setTitle("Ola Padilla");
@@ -99,6 +108,4 @@ public class Interfaz extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-
-
 }
