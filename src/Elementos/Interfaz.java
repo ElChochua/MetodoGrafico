@@ -17,12 +17,11 @@ public class Interfaz extends JFrame {
      Fox1 Funcion objetivo x1
      txtR1x1Final se refiere al valor de cuando x1 o x2 no vale 0 :p
      */
-    private TextField txtFox1,txtFox2,txtR1x1,txtR1x2,txtR2x1,txtR2x2,txtR3x1,
-            txtR3x2,txtR1Coeficiente,txtR2Coeficiente,txtR3Coeficiente,txtR1x1Final,txtR1x2Final,txtR2x1Final,txtR2x2Final,txtR3x1Final,txtR3x2Final;
+    private TextField txtFox1,txtFox2,txtR1x1,txtR1x2,txtR2x1,txtR2x2,txtR3x1,txtR3x2,txtR1Coeficiente,txtR2Coeficiente,txtR3Coeficiente;
     private JLabel l_Izquierda, l_Centro, l_Derecho,l_Objetivo,l_Fox1,l_Fox2,
             l_Restriccion1,l_Restriccion2,l_Restriccion3,l_Rr1x1,l_Rr1x2,l_Rr2x1,l_Rr2x2,l_Rr3x1,l_Rr3x2,l_FuncionObjetivo
             ,l_SujetoA,l_SujetoARestriccion1,l_SujetoARestriccion2,l_SujetoARestriccion3, l_R1x1IsCero,l_R1x2IsCero, l_R2x1IsCero,l_R2x2IsCero, l_R3x1IsCero,l_R3x2IsCero,
-            l_FuncionObjetivoFijax1,l_FuncionObjetivoFijax2;
+            l_FuncionObjetivoFijax1,l_FuncionObjetivoFijax2, l_R1x1Final, l_R1x2Final, l_R2x1Final, l_R2x2Final, l_R3x1Final, l_R3x2Final;
 
     private JButton b_Limpiar, b_Calcular,b_AgregarR,b_BorrarR,b_Graficar;
     private JComboBox j_Objetivo, j_Desigualdad1,j_Desigualdad2,j_Desigualdad3;
@@ -33,7 +32,7 @@ public class Interfaz extends JFrame {
         Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\jossu\\OneDrive\\Escritorio\\MetodoGrafico\\MetodoGrafico\\src\\gato.jpg");
         l_Objetivo = new JLabel("Objetivo:");
         b_Limpiar = new JButton("Limpiar");
-        b_Calcular = new JButton("Fijar");
+        b_Calcular = new JButton("Calcular");
         b_AgregarR = new JButton("Agregar Restriccion");
         b_BorrarR = new JButton("Borrar Restriccion");
         b_Graficar  = new JButton("Graficar");
@@ -60,12 +59,12 @@ public class Interfaz extends JFrame {
         l_R2x2IsCero = new JLabel("x2=0");
         l_R3x1IsCero = new JLabel("x1=0");
         l_R3x2IsCero = new JLabel("x2=0");
-        txtR1x1Final = new TextField();
-        txtR1x2Final = new TextField();
-        txtR2x1Final = new TextField();
-        txtR2x2Final = new TextField();
-        txtR3x1Final = new TextField();
-        txtR3x2Final = new TextField();
+        l_R1x1Final = new JLabel();
+        l_R1x2Final = new JLabel();
+        l_R2x1Final = new JLabel();
+        l_R2x2Final = new JLabel();
+        l_R3x1Final = new JLabel();
+        l_R3x2Final = new JLabel();
         l_Derecho = new JLabel();
         l_Centro = new JLabel();
         l_FuncionObjetivo = new JLabel();
@@ -116,16 +115,12 @@ public class Interfaz extends JFrame {
         l_Fox2.setBounds(185,70,50,60);
         //Restriccion base 1
         l_Restriccion1.setBounds(20,120,80,20);
-        l_SujetoARestriccion1.setBounds(20,100,120,20);
+        l_SujetoARestriccion1.setBounds(20,120,120,20);
         //Restriccion 1 Cuando x1 es cero y x2 es cero
         l_R1x1IsCero.setBounds(20,140,80,20);
         l_R1x2IsCero.setBounds(120,140,80,20);
-
-        txtR1x1Final.setBounds(20,160,80,25);
-        txtR1x1Final.setEditable(false);
-
-        txtR1x2Final.setBounds(120,160,80,25);
-        txtR1x2Final.setEditable(false);
+        l_R1x1Final.setBounds(20,160,80,25);
+        l_R1x2Final.setBounds(120,160,80,25);
         l_Rr1x1.setBounds(80,140,50,60);
         l_Rr1x2.setBounds(185,140,50,60);
         txtR1Coeficiente.setBounds(270,160,70,25);
@@ -136,10 +131,10 @@ public class Interfaz extends JFrame {
         l_R2x1IsCero.setBounds(20,200,200,60);
         l_R2x2IsCero.setBounds(120,200,200,60);
 
-        txtR2x1Final.setBounds(20,240,80,25);
-        txtR2x1Final.setEditable(false);
-        txtR2x2Final.setBounds(120,240,80,25);
-        txtR2x2Final.setEditable(false);
+        l_R2x1Final.setBounds(20,240,80,25);
+
+        l_R2x2Final.setBounds(120,240,80,25);
+
 
         l_Rr2x1.setBounds(80,210,50,60);
         l_Rr2x2.setBounds(185,210,50,60);
@@ -152,10 +147,10 @@ public class Interfaz extends JFrame {
         l_R3x1IsCero.setBounds(20,280,200,60);
         l_R3x2IsCero.setBounds(120,280,200,60);
 
-        txtR3x1Final.setBounds(20,320,80,25);
-        txtR3x1Final.setEditable(false);
-        txtR3x2Final.setBounds(120,320,80,25);
-        txtR3x2Final.setEditable(false);
+        l_R3x1Final.setBounds(20,320,80,25);
+
+        l_R3x2Final.setBounds(120,320,80,25);
+
 
         l_Rr3x1.setBounds(80,280,50,60);
         l_Rr3x2.setBounds(185,280,50,60);
@@ -238,12 +233,12 @@ public class Interfaz extends JFrame {
         l_Centro.add(l_FuncionObjetivoFijax1);
         l_Centro.add(l_FuncionObjetivoFijax2);
 
-        l_Centro.add(txtR1x1Final);
-        l_Centro.add(txtR1x2Final);
-        l_Centro.add(txtR2x1Final);
-        l_Centro.add(txtR2x2Final);
-        l_Centro.add(txtR3x1Final);
-        l_Centro.add(txtR3x2Final);
+        l_Centro.add(l_R1x1Final);
+        l_Centro.add(l_R1x2Final);
+        l_Centro.add(l_R2x1Final);
+        l_Centro.add(l_R2x2Final);
+        l_Centro.add(l_R3x1Final);
+        l_Centro.add(l_R3x2Final);
         l_Centro.add(l_R1x1IsCero);
         l_Centro.add(l_R1x2IsCero);
         l_Centro.add(l_R2x1IsCero);
@@ -278,9 +273,41 @@ public class Interfaz extends JFrame {
         }
         if(e.getSource()== b_Calcular){
             //Calcular
-
+            despejarXyY(txtR1x1,txtR1x2,txtR2x1,txtR2x2,txtR3x1,txtR3x2,txtR1Coeficiente,txtR2Coeficiente,txtR3Coeficiente,l_R1x1Final,l_R1x2Final,l_R2x1Final,l_R2x2Final,l_R3x1Final,l_R3x2Final);
             l_FuncionObjetivoFijax1.setText(txtFox1.getText() + "X1");
             l_FuncionObjetivoFijax2.setText(txtFox2.getText() + "X2");
         }
     }
+    public static void despejarXyY(TextField R1x1,TextField R1x2,TextField R2x1,TextField R2x2, TextField R3x1,
+                                   TextField R3x2,TextField R1Coeficiente,TextField R2Coeficiente, TextField R3Coeficiente, JLabel l_R1x1Final,JLabel l_R1x2Final,JLabel l_R2x1Final,
+                                   JLabel l_R2x2Final,JLabel l_R3x1Final,JLabel l_R3x2Final){
+        //Restriccion 1
+        Double R1x1Double = Double.parseDouble(R1x1.getText());
+        Double R1x2Double = Double.parseDouble(R1x2.getText());
+        Double R1CoeficienteDouble = Double.parseDouble(R1Coeficiente.getText());
+            R1x1Double = R1CoeficienteDouble / R1x1Double;
+            R1x2Double = R1CoeficienteDouble / R1x2Double;
+            l_R1x1Final.setText(R1x2Double.toString());
+            l_R1x2Final.setText(R1x1Double.toString());
+
+        //Restriccion 2
+        Double R2x1Double = Double.parseDouble(R2x1.getText());
+        Double R2x2Double = Double.parseDouble(R2x2.getText());
+        Double R2CoeficienteDouble = Double.parseDouble(R2Coeficiente.getText());
+        R2x1Double = R2CoeficienteDouble / R2x1Double;
+        R2x2Double = R2CoeficienteDouble / R2x2Double;
+        l_R2x1Final.setText(R2x2Double.toString());
+        l_R2x2Final.setText(R2x1Double.toString());
+        //Restriccion 3
+        Double R3x1Double = Double.parseDouble(R3x1.getText());
+        Double R3x2Double = Double.parseDouble(R3x2.getText());
+        Double R3CoeficienteDouble = Double.parseDouble(R3Coeficiente.getText());
+        R3x1Double = R3CoeficienteDouble / R3x1Double;
+        R3x2Double = R3CoeficienteDouble / R3x2Double;
+        l_R3x1Final.setText(R3x2Double.toString());
+        l_R3x2Final.setText(R3x1Double.toString());
+
+
+    }
+
 }
