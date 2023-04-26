@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 
 
+
 public class Interfaz extends JFrame {
     /*El Label de la izquierda tiene el objetivo, Funcion objetivo y las 3 restricciones
       El Label del centro va a tener los valores de las restricciones Fijas para que no sean editadas
@@ -132,7 +133,6 @@ public class Interfaz extends JFrame {
         l_R2x2IsCero.setBounds(120,200,200,60);
 
         l_R2x1Final.setBounds(20,240,80,25);
-
         l_R2x2Final.setBounds(120,240,80,25);
 
 
