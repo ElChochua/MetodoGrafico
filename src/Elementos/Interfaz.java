@@ -121,7 +121,7 @@ public class Interfaz extends JFrame {
                 , datasetRestricciones, PlotOrientation.VERTICAL
                 , true, false, false);
 
-
+        //Ola pinche jesus
         XYSeriesCollection datasetObjetico = new XYSeriesCollection();
 
         //Restriccion 1
